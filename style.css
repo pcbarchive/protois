@@ -449,6 +449,7 @@ li {
 
 .flagExplanation>div>img {
     border-radius: 1.5vw;
+    cursor: pointer;
 }
 
 .flagExplanation>div>p {

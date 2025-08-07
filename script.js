@@ -79,7 +79,16 @@ document.addEventListener("DOMContentLoaded", async function () {
             for (x in ideologies) {
                 const flagExplanation = document.createElement("div")
                 flagExplanation.classList.add("flagExplanation")
-                flagExplanation.innerHTML = `<div><img src="./assets/flags/${x}.svg"></div><div><p>${x}</p><p>${ideologies[x][2]}</p></div>`
+                const flagExplanationImage = document.createElement("img")
+                flagExplanationImage.src = `./assets/flags/${x}.svg`
+                flagExplanationImage.onclick = (function (ideology) {
+                    return () => r("about", ideology)
+                }(x))
+                const imageDiv = document.createElement("div")
+                imageDiv.appendChild(flagExplanationImage)
+                const textDiv = document.createElement("div")
+                textDiv.innerHTML = `<p>${x}</p><p>${ideologies[x][2]}</p>`
+                flagExplanation.append(imageDiv, textDiv)
                 flagExplanations.appendChild(flagExplanation)
                 const option = document.createElement("option")
                 option.innerHTML = x
@@ -236,8 +245,6 @@ function s(ideology) {
     // Shows the switch buttons.
     lSwitch.style.display = "flex"
     rSwitch.style.display = "flex"
-    // Makes the back button bring you back to the tree viewer tool.
-    resultsBack.onclick = () => show("tree")
     if (selected > 0) { // If you want to go to the previous result and aren't at the start, go to the previous one.
         lSwitch.onclick = () => r("tree", list[selected - 1])
     } else { // Otherwise, go to the last result of the list.
@@ -260,8 +267,10 @@ function r(p, ideology) {
     quote.innerText = ideologies[ideology][0] || "No quote"
     // Displays the author, or "No author" if there isn't any.
     author.innerText = ideologies[ideology][1] || "No author"
-    if (p === "tree") { // If the result display comes from the tree, turn on the switch buttons.
+    if (p === "about" || p === "tree") { // If the result display comes from the about or the tree, turn on the switch buttons.
         s(ideology)
+        // Makes the back button bring you back to the section you came from.
+        resultsBack.onclick = () => show(p)
     } else { // Otherwise, don't.
         lSwitch.style.display = rSwitch.style.display = "none"
         resultsBack.onclick = p || (() => show("home"))
@@ -332,6 +341,8 @@ document.addEventListener("keydown", event => {
                 r("tree", list[selected < list.length - 1 ? selected + 1 : 0])
             }
         }
+    } else if (isVisible(about) && key === "Enter") {  // Otherwise, if the about section is displayed, enter shows the flag explanations.
+        toggleView('flagExplanations', flagExplanationsButton)
     } else if (isVisible(tree) && key === "Enter") {  // Otherwise, if the tree section is displayed, enter shows the first result of the list.
         if (matches.selectedIndex === 0) matches.selectedIndex = 1
         r("tree", matches.options[matches.selectedIndex].text)
