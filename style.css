@@ -1,0 +1,241 @@
+@font-face {
+    font-family: heavitas;
+    src: url(./assets/fonts/heavitas.ttf);
+}
+
+@font-face {
+    font-family: expressway;
+    src: url(./assets/fonts/expressway.ttf);
+}
+
+@font-face {
+    font-family: bebasneue;
+    src: url(./assets/fonts/bebasneue.otf);
+}
+
+:root {
+    --gap: 16px;
+    --radius: 16px;
+    --shadowHeight: 8px;
+}
+
+[data-theme="light"] {
+    --background: hsl(0, 0%, 100%);
+    --text: hsl(0, 0%, 0%);
+    --textButton: hsl(0, 0%, 100%);
+    --button: hsl(0, 0%, 66.7%);
+    --buttonShadow: hsl(0, 0%, 33.3%);
+}
+
+[data-theme="dark"] {
+    --background: hsl(0, 0%, 6%);
+    --text: hsl(0, 0%, 100%);
+    --textButton: hsl(0, 0%, 100%);
+    --button: hsl(0, 0%, 25%);
+    --buttonShadow: hsl(0, 0%, 17.5%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 0;
+    text-decoration: none;
+    text-align: center;
+    /**/
+    /*outline: solid 1px #0f0;
+    outline-offset: -1px;*/
+}
+
+html,
+body {
+    overflow: visible !important;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--button) var(--background);
+}
+
+body {
+    display: grid;
+    grid-template-columns: 96px 1fr 96px;
+    gap: var(--gap);
+    min-height: 100vh;
+    background-color: var(--background);
+    padding: var(--gap);
+}
+
+button {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap);
+    background-color: var(--button);
+    border-radius: var(--radius);
+    padding: var(--gap);
+    margin-bottom: var(--shadowHeight);
+    box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
+    border: none;
+    cursor: pointer;
+    transition: transform .05s linear, box-shadow .05s linear;
+    user-select: none;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(var(--shadowHeight));
+    box-shadow: 0 0 var(--buttonShadow);
+}
+
+#sidebarLeft,
+#sidebarRight {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebarLeft {
+    gap: var(--gap);
+}
+
+#tools {
+    display: none;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+#sidebarLeft button img {
+    width: 100%;
+}
+
+#page {
+    display: grid;
+    grid-template-rows: 128px 1fr 128px;
+    gap: calc(3*var(--gap));
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.headerGap {
+    display: flex;
+    flex: 1;
+}
+
+.headerGap>a {
+    display: block;
+    height: fit-content;
+    position: relative;
+    top: 25%;
+    font-size: 24px;
+    color: var(--text);
+    font-family: heavitas;
+}
+
+#headerImage {
+    height: 100%;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+}
+
+#author {
+    display: block;
+    height: 48px;
+    font-size: 36px;
+    color: var(--text);
+    font-family: heavitas;
+}
+
+#socials {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+#socials>a {
+    display: block;
+    height: 64px;
+    width: 64px;
+    cursor: pointer;
+}
+
+#socials>a>img {
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#homeMenu {
+    display: grid;
+    grid-template-rows: 80px 112px 80px 112px;
+    grid-template-columns: 224px 224px 224px;
+    gap: var(--gap);
+}
+
+#homeMenu>button {
+    font-size: 28px;
+    color: var(--textButton);
+    font-family: heavitas;
+}
+
+#homeMenu>button>img {
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
+}
+
+#intro {
+    grid-column: span 3;
+    font-size: 32px;
+    color: var(--text);
+    font-family: heavitas;
+}
+
+#startButton {
+    grid-column: span 3;
+    font-size: 40px !important;
+}
+
+#slopButton {
+    grid-column: span 3;
+    font-size: 28px !important;
+    color: var(--textButton);
+    font-family: heavitas;
+}
+
+@media (max-width: 1280px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    #sidebarLeft,
+    #sidebarRight {
+        display: none;
+    }
+
+    #page {
+        grid-template-rows: 128px 1fr 128px;
+    }
+
+    .headerGap a {
+        font-size: 24px;
+    }
+}

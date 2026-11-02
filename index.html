@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover your political ideology with only a few questions using a flowchart quiz.">
+    <meta name="theme-color" content="#00a0ff">
+    <title>IdeoSorter</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./assets/logos/icon.png">
+    <meta property="og:site_name" content="IdeoSorter">
+    <meta property="og:title" content="IdeoSorter">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Discover your political ideology with only a few questions using a flowchart quiz.">
+    <meta property="og:url" content="https://quark88.github.io/ideosorter">
+    <meta property="og:image" content="https://quark88.github.io/ideosorter/assets/logos/embed.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@RenaudBeaulieuQ">
+    <meta name="twitter:title" content="IdeoSorter">
+    <meta name="twitter:description" content="Discover your political ideology with only a few questions using a flowchart quiz.">
+    <meta name="twitter:image" content="https://quark88.github.io/ideosorter/assets/logos/title.png">
+</head>
+
+<body>
+    <aside id="sidebarLeft">
+        <button onclick="toggleTools()">
+            <img id="toolsToggleIcon" src="./assets/buttons/labor.svg">
+        </button>
+        <div id="tools">
+            <button onclick="show('home')">
+                <img src="./assets/buttons/home.svg">
+            </button>
+            <button onclick="show('quiz')">
+                <img src="./assets/buttons/yes.svg">
+            </button>
+            <button onclick="show('create')">
+                <img src="./assets/buttons/create.svg">
+            </button>
+            <button onclick="show('about')">
+                <img src="./assets/buttons/about.svg">
+            </button>
+            <button onclick="show('tree')">
+                <img src="./assets/buttons/tree.svg">
+            </button>
+            <button onclick="toggleTheme()">
+                <img id="themeToggleIcon" src="./assets/buttons/dark.svg">
+            </button>
+        </div>
+    </aside>
+    <div id="page">
+        <header id="header">
+            <div class="headerGap"></div>
+            <img id="headerImage" src="./assets/logos/titleLight.svg">
+            <div class="headerGap">
+                <a>V3.0.0</a>
+            </div>
+        </header>
+        <section id="home" class="content">
+            <div id="homeMenu">
+                <div id="intro">
+                    Discover your political ideology with only a few questions
+                </div>
+                <button id="startButton">
+                    Start
+                    <img src="./assets/buttons/start.svg">
+                </button>
+                <button>
+                    <img src="./assets/buttons/create.svg">
+                    Create
+                </button>
+                <button>
+                    <img src="./assets/buttons/about.svg">
+                    About
+                </button>
+                <button>
+                    <img src="./assets/buttons/tree.svg">
+                    Tree
+                </button>
+                <button id="slopButton">
+                    <img src="./assets/buttons/trash.svg">
+                    See the rejected ideology proposals here
+                </button>
+            </div>
+        </section>
+        <section id="quiz" class="content">
+        </section>
+        <section id="results" class="content">
+            <div style="width: 50px; height: 50px; background-color: hsl(120, 75%, 50%); box-shadow: 0 var(--shadowHeight) hsl(120, 75%, 33.3%);"></div>
+            <div style="width: 50px; height: 50px; background-color: hsl(120, 75%, 33.3%); box-shadow: 0 var(--shadowHeight) hsl(120, 75%, 25%);"></div>
+            <div style="width: 50px; height: 50px; background-color: hsl(0, 75%, 50%); box-shadow: 0 var(--shadowHeight) hsl(0, 75%, 33.3%);"></div>
+            <div style="width: 50px; height: 50px; background-color: hsl(0, 75%, 33.3%); box-shadow: 0 var(--shadowHeight) hsl(0, 75%, 25%);"></div>
+        </section>
+        <section id="create" class="content">
+        </section>
+        <section id="about" class="content">
+        </section>
+        <section id="tree" class="content">
+        </section>
+        <footer id="footer">
+            <a id="author" title="Quark's personal page" target="_blank" href="https://x.com/RenaudBeaulieuQ">Quark 2026</a>
+            <div id="socials">
+                <a title="Quark on Discord" onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied! (realquark)')">
+                    <img src=" assets/logos/discord.svg">
+                </a>
+                <a title="Quark on X" target="_blank" href="https://x.com/RenaudBeaulieuQ">
+                    <img src=" assets/logos/x.svg">
+                </a>
+                <a title="Quark on GitHub" target="_blank" href="https://github.com/QUARK88">
+                    <img src=" assets/logos/github.svg">
+                </a>
+                <a title="Quark on Reddit" target="_blank" href="https://www.reddit.com/user/QK_QUARK88">
+                    <img src=" assets/logos/reddit.svg">
+                </a>
+            </div>
+        </footer>
+    </div>
+    <aside id="sidebarRight"></aside>
+</body>
+<script src="./script.js"></script>
+
+</html>
