@@ -68,4 +68,4 @@ editQuizButton("quizButton1", "yes", "Yes", 150)
 editQuizButton("quizButton2", "no", "No", 25)
 elements.quizButton3.style.display = "none"
 elements.quizButton4.style.display = "none"
-show("quiz")
+show("home")

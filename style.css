@@ -264,6 +264,10 @@ button:active {
     box-shadow: 0 var(--shadowHeight) oklch(45% .25 var(--hue));
 }
 
+#quizButtons>button:active {
+    box-shadow: 0 0 oklch(45% .25 var(--hue));
+}
+
 #quizButtons>button>img {
     height: 2.5rem;
     width: 2.5rem;
