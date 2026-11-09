@@ -24,7 +24,7 @@
 
 <body>
     <aside id="sidebarLeft">
-        <button onclick="toggleTools()">
+        <button id="toolsToggle" onclick="toggleTools()">
             <img id="toolsToggleIcon" src="./assets/buttons/labor.svg">
         </button>
         <div id="tools">
@@ -58,47 +58,80 @@
         </header>
         <section id="home" class="content">
             <div id="homeMenu">
-                <div id="intro">
-                    Discover your political ideology with only a few questions
-                </div>
-                <button id="startButton">
-                    Start
+                <div id="intro">Discover your political ideology with only a few questions</div>
+                <button id="buttonStart" onclick="show('quiz')">
+                    <div>Start</div>
                     <img src="./assets/buttons/start.svg">
                 </button>
-                <button>
+                <button onclick="show('create')">
                     <img src="./assets/buttons/create.svg">
-                    Create
+                    <div>Create</div>
                 </button>
-                <button>
+                <button onclick="show('about')">
                     <img src="./assets/buttons/about.svg">
-                    About
+                    <div>About</div>
                 </button>
-                <button>
+                <button onclick="show('tree')">
                     <img src="./assets/buttons/tree.svg">
-                    Tree
+                    <div>Tree</div>
                 </button>
-                <button id="slopButton">
+                <button id="buttonSlop" onclick="window.open('https://quark88.github.io/ideoslopper', '_blank')">
                     <img src="./assets/buttons/trash.svg">
-                    See the rejected ideology proposals here
+                    <div>See the rejected ideology proposals here</div>
                 </button>
             </div>
         </section>
         <section id="quiz" class="content">
+            <div id="quizQuestion">Loading...</div>
+            <div id="quizButtons">
+                <button id="quizButton1">
+                    <img src="./assets/buttons/missing.svg">
+                    <div>Loading...</div>
+                </button>
+                <button id="quizButton2">
+                    <img src="./assets/buttons/missing.svg">
+                    <div>Loading...</div>
+                </button>
+                <button id="quizButton3">
+                    <img src="./assets/buttons/missing.svg">
+                    <div>Loading...</div>
+                </button>
+                <button id="quizButton4">
+                    <img src="./assets/buttons/missing.svg">
+                    <div>Loading...</div>
+                </button>
+            </div>
+            <button class="buttonBack" onclick="back()">
+                <img src="./assets/buttons/back.svg">
+                <div>Back</div>
+            </button>
         </section>
-        <section id="results" class="content">
-            <div style="width: 50px; height: 50px; background-color: hsl(120, 75%, 50%); box-shadow: 0 var(--shadowHeight) hsl(120, 75%, 33.3%);"></div>
-            <div style="width: 50px; height: 50px; background-color: hsl(120, 75%, 33.3%); box-shadow: 0 var(--shadowHeight) hsl(120, 75%, 25%);"></div>
-            <div style="width: 50px; height: 50px; background-color: hsl(0, 75%, 50%); box-shadow: 0 var(--shadowHeight) hsl(0, 75%, 33.3%);"></div>
-            <div style="width: 50px; height: 50px; background-color: hsl(0, 75%, 33.3%); box-shadow: 0 var(--shadowHeight) hsl(0, 75%, 25%);"></div>
+        <section class="content" id="results">
+            <button class="buttonBack" onclick="back()">
+                <img src="./assets/buttons/back.svg">
+                <div>Back</div>
+            </button>
         </section>
-        <section id="create" class="content">
+        <section class="content" id="create">
+            <button class="buttonBack" onclick="back()">
+                <img src="./assets/buttons/back.svg">
+                <div>Back</div>
+            </button>
         </section>
-        <section id="about" class="content">
+        <section class="content" id="about">
+            <button class="buttonBack" onclick="back()">
+                <img src="./assets/buttons/back.svg">
+                <div>Back</div>
+            </button>
         </section>
-        <section id="tree" class="content">
+        <section class="content" id="tree">
+            <button class="buttonBack" onclick="back()">
+                <img src="./assets/buttons/back.svg">
+                <div>Back</div>
+            </button>
         </section>
         <footer id="footer">
-            <a id="author" title="Quark's personal page" target="_blank" href="https://x.com/RenaudBeaulieuQ">Quark 2026</a>
+            <a id="author" title="Quark's personal page" target="_blank" href="https://quark88.github.io">Quark 2026</a>
             <div id="socials">
                 <a title="Quark on Discord" onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied! (realquark)')">
                     <img src=" assets/logos/discord.svg">

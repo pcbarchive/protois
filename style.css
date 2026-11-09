@@ -14,9 +14,10 @@
 }
 
 :root {
-    --gap: 16px;
-    --radius: 16px;
-    --shadowHeight: 8px;
+    --gap: 1rem;
+    --sidebarSize: 6rem;
+    --radius: 1rem;
+    --shadowHeight: .5rem;
 }
 
 [data-theme="light"] {
@@ -38,33 +39,29 @@
 * {
     padding: 0;
     margin: 0;
-    overflow: hidden;
     box-sizing: border-box;
-    font-size: 0;
     text-decoration: none;
     text-align: center;
-    /**/
+    max-width: 100%;
     /*outline: solid 1px #0f0;
-    outline-offset: -1px;*/
-}
-
-html,
-body {
-    overflow: visible !important;
+    outline-offset: -1px;
+    /**/
 }
 
 html {
+    font-size: 16px;
     scrollbar-width: thin;
     scrollbar-color: var(--button) var(--background);
 }
 
 body {
     display: grid;
-    grid-template-columns: 96px 1fr 96px;
+    grid-template-columns: var(--sidebarSize) 1fr var(--sidebarSize);
     gap: var(--gap);
     min-height: 100vh;
     background-color: var(--background);
     padding: var(--gap);
+    justify-content: center;
 }
 
 button {
@@ -81,8 +78,10 @@ button {
     box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
     border: none;
     cursor: pointer;
-    transition: transform .05s linear, box-shadow .05s linear;
+    transition: transform .05s ease-out, box-shadow .05s ease-out;
     user-select: none;
+    color: var(--textButton);
+    font-family: heavitas;
 }
 
 button:hover {
@@ -110,13 +109,19 @@ button:active {
     gap: var(--gap);
 }
 
+#sidebarLeft button {
+    width: var(--sidebarSize);
+    height: var(--sidebarSize);
+}
+
 #sidebarLeft button img {
+    height: 100%;
     width: 100%;
 }
 
 #page {
     display: grid;
-    grid-template-rows: 128px 1fr 128px;
+    grid-template-rows: 8rem 1fr 8rem;
     gap: calc(3*var(--gap));
 }
 
@@ -124,6 +129,7 @@ button:active {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
 }
 
 .headerGap {
@@ -136,7 +142,7 @@ button:active {
     height: fit-content;
     position: relative;
     top: 25%;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: var(--text);
     font-family: heavitas;
 }
@@ -154,8 +160,8 @@ button:active {
 
 #author {
     display: block;
-    height: 48px;
-    font-size: 36px;
+    height: 3rem;
+    font-size: 2.25rem;
     color: var(--text);
     font-family: heavitas;
 }
@@ -163,13 +169,13 @@ button:active {
 #socials {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: var(--gap);
 }
 
 #socials>a {
     display: block;
-    height: 64px;
-    width: 64px;
+    height: 4rem;
+    width: 4rem;
     cursor: pointer;
 }
 
@@ -178,64 +184,128 @@ button:active {
 }
 
 .content {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
 
+.buttonBack {
+    height: 5rem;
+    width: 18rem;
+    font-size: 1.75rem;
+}
+
+.buttonBack>img {
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+}
+
 #homeMenu {
     display: grid;
-    grid-template-rows: 80px 112px 80px 112px;
-    grid-template-columns: 224px 224px 224px;
+    grid-template-rows: 5rem 7rem 5rem 7rem;
+    grid-template-columns: 14rem 14rem 14rem;
     gap: var(--gap);
 }
 
 #homeMenu>button {
-    font-size: 28px;
-    color: var(--textButton);
-    font-family: heavitas;
+    font-size: 1.75rem;
 }
 
 #homeMenu>button>img {
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     flex-shrink: 0;
 }
 
 #intro {
     grid-column: span 3;
-    font-size: 32px;
+    font-size: 2rem;
     color: var(--text);
     font-family: heavitas;
 }
 
-#startButton {
+#buttonStart {
     grid-column: span 3;
-    font-size: 40px !important;
+    font-size: 2.5rem !important;
 }
 
-#slopButton {
+#buttonSlop {
     grid-column: span 3;
-    font-size: 28px !important;
-    color: var(--textButton);
+}
+
+#quizQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7rem;
+    width: 44rem;
+    background-color: var(--button);
+    border-radius: var(--radius);
+    padding: var(--gap);
+    margin-bottom: var(--shadowHeight);
+    box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
+    font-size: 2rem;
+    color: var(--text);
     font-family: heavitas;
 }
 
-@media (max-width: 1280px) {
+#quizButtons {
+    display: grid;
+    width: 36rem;
+    grid-auto-rows: 7rem;
+    gap: var(--shadowHeight);
+    margin: var(--shadowHeight) auto;
+}
+
+#quizButtons>button {
+    font-size: 2.5rem;
+    background-color: oklch(60% .25 var(--hue));
+    box-shadow: 0 var(--shadowHeight) oklch(45% .25 var(--hue));
+}
+
+#quizButtons>button>img {
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 8px;
+    }
+
     body {
         grid-template-columns: 1fr;
+        grid-auto-flow: column;
+        grid-template-rows: var(--sidebarSize) 1fr var(--sidebarSize);
     }
 
     #sidebarLeft,
+    #tools,
     #sidebarRight {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #toolsToggle {
         display: none;
     }
 
-    #page {
-        grid-template-rows: 128px 1fr 128px;
+    .buttonBack {
+        height: 10rem;
     }
 
-    .headerGap a {
-        font-size: 24px;
+    #homeMenu {
+        grid-template-rows: 5rem 14rem 10rem 14rem;
+    }
+
+    #quizQuestion {
+        height: 14rem;
+    }
+
+    #quizButtons {
+        grid-auto-rows: 14rem;
     }
 }
