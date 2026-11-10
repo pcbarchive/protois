@@ -93,6 +93,11 @@ button:active {
     box-shadow: 0 0 var(--buttonShadow);
 }
 
+button>img {
+    height: 100%;
+    flex-shrink: 0;
+}
+
 #sidebarLeft,
 #sidebarRight {
     display: flex;
@@ -112,11 +117,6 @@ button:active {
 #sidebarLeft button {
     width: var(--sidebarSize);
     height: var(--sidebarSize);
-}
-
-#sidebarLeft button img {
-    height: 100%;
-    width: 100%;
 }
 
 #page {
@@ -187,18 +187,13 @@ button:active {
     display: none;
     flex-direction: column;
     align-items: center;
+    gap: var(--gap);
 }
 
 .buttonBack {
     height: 5rem;
     width: 18rem;
     font-size: 1.75rem;
-}
-
-.buttonBack>img {
-    height: 2.5rem;
-    width: 2.5rem;
-    flex-shrink: 0;
 }
 
 #homeMenu {
@@ -212,12 +207,6 @@ button:active {
     font-size: 1.75rem;
 }
 
-#homeMenu>button>img {
-    height: 2.5rem;
-    width: 2.5rem;
-    flex-shrink: 0;
-}
-
 #intro {
     grid-column: span 3;
     font-size: 2rem;
@@ -228,10 +217,12 @@ button:active {
 #buttonStart {
     grid-column: span 3;
     font-size: 2.5rem !important;
+    padding: 1.5rem;
 }
 
 #buttonSlop {
     grid-column: span 3;
+    padding: 1.5rem;
 }
 
 #quizQuestion {
@@ -255,23 +246,113 @@ button:active {
     width: 36rem;
     grid-auto-rows: 7rem;
     gap: var(--shadowHeight);
-    margin: var(--shadowHeight) auto;
 }
 
 #quizButtons>button {
     font-size: 2.5rem;
     background-color: oklch(60% .25 var(--hue));
     box-shadow: 0 var(--shadowHeight) oklch(45% .25 var(--hue));
+    padding: 2rem;
 }
 
 #quizButtons>button:active {
     box-shadow: 0 0 oklch(45% .25 var(--hue));
 }
 
-#quizButtons>button>img {
-    height: 2.5rem;
-    width: 2.5rem;
-    flex-shrink: 0;
+.card {
+    display: grid;
+    grid-template-columns: 15.5rem 23.5rem;
+    grid-template-rows: 10.5rem 7.5rem;
+    gap: var(--gap);
+    padding: 2rem;
+    border-radius: var(--radius);
+    background-color: var(--button);
+    margin-bottom: var(--shadowHeight);
+    box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
+    color: var(--text);
+    font-family: heavitas;
+    font-size: 1rem;
+}
+
+.cardFlag {
+    border-radius: var(--radius);
+    border: .25rem solid var(--background);
+}
+
+.cardInfo {
+    display: grid;
+    grid-template-rows: 6rem 1.5rem 3rem;
+}
+
+.cardTitle {
+    font-size: 2rem;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: .25rem;
+    text-underline-offset: .25rem;
+}
+
+.cardCategory {
+    font-size: 1.5rem;
+}
+
+.cardQuote {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr fit-content(42rem) 1fr;
+    grid-template-rows: 6rem 1rem;
+    gap: calc(.5 * var(--gap)) var(--gap);
+    height: fit-content;
+    justify-self: center;
+}
+
+.cardQuoteMark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+#cardQuoteMarkLeft {
+    justify-content: end;
+}
+
+#cardQuoteMarkRight {
+    justify-content: start;
+}
+
+.cardQuoteText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    width: fit-content;
+}
+
+.cardQuoteAuthor {
+    position: relative;
+    grid-column: span 3;
+    width: fit-content;
+    justify-self: center;
+}
+
+.cardQuoteAuthor::before {
+    position: absolute;
+    content: "-";
+    left: -1rem;
+}
+
+#resultsSwitches {
+    display: grid;
+    grid-template-columns: 12rem 18rem 12rem;
+    gap: var(--gap);
+    height: 5rem;
+    margin-bottom: var(--shadowHeight);
+}
+
+#resultsSwitches>button {
+    font-size: 1.75rem;
+    height: 5rem;
 }
 
 @media (max-width: 992px) {
@@ -299,10 +380,16 @@ button:active {
 
     .buttonBack {
         height: 10rem;
+        padding: 3rem;
+        font-size: 3rem;
     }
 
     #homeMenu {
         grid-template-rows: 5rem 14rem 10rem 14rem;
+    }
+
+    #homeMenu>button {
+        padding: 3rem;
     }
 
     #quizQuestion {
@@ -311,5 +398,10 @@ button:active {
 
     #quizButtons {
         grid-auto-rows: 14rem;
+    }
+
+    #quizButtons>button {
+        padding: 4rem;
+        font-size: 3rem;
     }
 }

@@ -84,11 +84,11 @@
         <section id="quiz" class="content">
             <div id="quizQuestion">Loading...</div>
             <div id="quizButtons">
-                <button id="quizButton1">
+                <button id="quizButton1" onclick="show('results')">
                     <img src="./assets/buttons/missing.svg">
                     <div>Loading...</div>
                 </button>
-                <button id="quizButton2">
+                <button id="quizButton2" onclick="show('results')">
                     <img src="./assets/buttons/missing.svg">
                     <div>Loading...</div>
                 </button>
@@ -107,6 +107,32 @@
             </button>
         </section>
         <section class="content" id="results">
+            <div id="resultsCard" class="card">
+                <img class="cardFlag" id="resultsCardFlag" src="./assets/flags/Missing.svg">
+                <div class="cardInfo">
+                    <div class="cardTitle" id="resultsCardTitle">Loading...</div>
+                    <div>Category:</div>
+                    <div class="cardCategory" id="resultsCardCategory">Loading...</div>
+                </div>
+                <div class="cardQuote">
+                    <div class="cardQuoteMark" id="cardQuoteMarkLeft">“</div>
+                    <div class="cardQuoteText" id="resultsCardQuoteText">Loading...</div>
+                    <div class="cardQuoteMark" id="cardQuoteMarkRight">”</div>
+                    <div class="cardQuoteAuthor" id="resultsCardQuoteAuthor">Loading...</div>
+                </div>
+            </div>
+            <div id="resultsSwitches">
+                <button onclick="swap(-1)">
+                    <img src="./assets/buttons/left.svg">
+                </button>
+                <button onclick="swap(0)">
+                    <img src="./assets/buttons/missing.svg">
+                    <div>Random</div>
+                </button>
+                <button onclick="swap(1)">
+                    <img src="./assets/buttons/right.svg">
+                </button>
+            </div>
             <button class="buttonBack" onclick="back()">
                 <img src="./assets/buttons/back.svg">
                 <div>Back</div>
