@@ -26,6 +26,8 @@
     --textButton: hsl(0, 0%, 100%);
     --button: hsl(0, 0%, 66.7%);
     --buttonShadow: hsl(0, 0%, 33.3%);
+    --headerText: hsl(0, 0%, 66.7%);
+    --headerShadow: hsl(0, 0%, 33.3%);
 }
 
 [data-theme="dark"] {
@@ -34,6 +36,8 @@
     --textButton: hsl(0, 0%, 100%);
     --button: hsl(0, 0%, 25%);
     --buttonShadow: hsl(0, 0%, 17.5%);
+    --headerText: hsl(0, 0%, 100%);
+    --headerShadow: hsl(0, 0%, 50%);
 }
 
 * {
@@ -60,7 +64,7 @@ body {
     gap: var(--gap);
     min-height: 100vh;
     background-color: var(--background);
-    padding: var(--gap);
+    padding: 1rem;
     justify-content: center;
 }
 
@@ -73,7 +77,7 @@ button {
     gap: var(--gap);
     background-color: var(--button);
     border-radius: var(--radius);
-    padding: var(--gap);
+    padding: 1rem;
     margin-bottom: var(--shadowHeight);
     box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
     border: none;
@@ -143,8 +147,9 @@ button>img {
     position: relative;
     top: 25%;
     font-size: 1.5rem;
-    color: var(--text);
     font-family: heavitas;
+    color: var(--headerText);
+    text-shadow: .125rem .125rem 0 var(--headerShadow);
 }
 
 #headerImage {
@@ -233,11 +238,11 @@ button>img {
     width: 44rem;
     background-color: var(--button);
     border-radius: var(--radius);
-    padding: var(--gap);
+    padding: 1rem;
     margin-bottom: var(--shadowHeight);
     box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
     font-size: 2rem;
-    color: var(--text);
+    color: var(--textButton);
     font-family: heavitas;
 }
 
@@ -269,7 +274,7 @@ button>img {
     background-color: var(--button);
     margin-bottom: var(--shadowHeight);
     box-shadow: 0 var(--shadowHeight) var(--buttonShadow);
-    color: var(--text);
+    color: var(--textButton);
     font-family: heavitas;
     font-size: 1rem;
 }
@@ -277,6 +282,7 @@ button>img {
 .cardFlag {
     border-radius: var(--radius);
     border: .25rem solid var(--background);
+    background-color: var(--background);
 }
 
 .cardInfo {
@@ -285,7 +291,7 @@ button>img {
 }
 
 .cardTitle {
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-thickness: .25rem;
